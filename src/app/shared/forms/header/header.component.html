@@ -1,0 +1,14 @@
+<nz-page-header
+  (nzBack)="onBackClick()"
+  [nzBackIcon]="backIcon"
+  [nzTitle]="pageTitle"
+  [nzSubtitle]="subtitle"
+>
+  <nz-page-header-tags *ngIf="tag">
+    <nz-tag [nzColor]="'green'">{{tag}}</nz-tag>
+  </nz-page-header-tags>
+
+  <nz-page-header-extra>
+    <ng-content></ng-content>
+  </nz-page-header-extra>
+</nz-page-header>
