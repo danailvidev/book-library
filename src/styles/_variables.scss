@@ -1,0 +1,14 @@
+$colors: (
+  main: (
+    light: #db9935,
+    dark: #db9935,
+  )
+);
+
+@function setColor($scheme, $tone) {
+  @return map-get(map-get($colors, $scheme), $tone);
+}
+
+
+
+
