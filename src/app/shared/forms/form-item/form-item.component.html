@@ -1,0 +1,13 @@
+<nz-form-item>
+  <nz-form-label [nzNoColon]="label ? false : true" [nzSpan]="labelSpan"
+    >{{ label }}
+    <ng-container *ngTemplateOutlet="labelSuffix"><ng-content></ng-content></ng-container
+  ></nz-form-label>
+  <nz-form-control nzErrorTip="errorTip" [nzSpan]="controlSpan">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </nz-form-control>
+</nz-form-item>
+
+<ng-template #content>
+  <ng-content></ng-content>
+</ng-template>
