@@ -1,0 +1,45 @@
+<ul nz-menu nzMode="inline" nzTheme="light" [nzInlineCollapsed]="isCollapsed">
+  <ng-container
+    *ngTemplateOutlet="menuTpl; context: { $implicit: model }"
+  ></ng-container>
+  <ng-template #menuTpl let-model>
+    <ng-container *ngFor="let menu of model">
+      <li
+        *ngIf="!menu.children"
+        nz-menu-item
+        [nzDisabled]="menu.disabled"
+        [nzSelected]="menu.selected"
+        nzMatchRouter
+        nz-tooltip
+        nzTooltipPlacement="right"
+        [nzTooltipTitle]="isCollapsed ? menu.title : ''"
+      >
+        <a [routerLink]="menu.routerLink">
+          <i nz-icon [nzType]="menu.icon" *ngIf="menu.icon"></i>
+          <span>{{ menu.title }}</span>
+        </a>
+      </li>
+      <li
+        *ngIf="menu.children"
+        nz-submenu
+        [nzTitle]="menu.title"
+        [nzIcon]="menu.icon"
+        [nzDisabled]="menu.disabled"
+        nzMatchRouter
+        (nzOpenChange)="openHandler(menu.title)"
+        [(nzOpen)]="openMap[menu.title]"
+      >
+        <ul>
+          <ng-container *ngFor="let menu of menu.children">
+            <li nz-menu-item [nzDisabled]="menu.disabled" nzMatchRouter>
+              <a [routerLink]="menu.routerLink">
+                <i nz-icon [nzType]="menu.icon" *ngIf="menu.icon"></i>
+                <span>{{ menu.title }}</span>
+              </a>
+            </li>
+          </ng-container>
+        </ul>
+      </li>
+    </ng-container>
+  </ng-template>
+</ul>
