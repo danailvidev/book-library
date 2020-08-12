@@ -1,11 +1,15 @@
-<div nz-row nzType="flex" nzJustify="center" style="margin-bottom: 1em;">
-  <div nz-col nzSpan="6">
+<div nz-row nzType="flex" nzJustify="end" style="margin-bottom: 1em;">
+  <div nz-col nzSpan="12">
     <ch-search-input
       placeholder="Search"
       (input)="search($event)"
       [delay]="200"
       [minInputLength]="2"
     ></ch-search-input>
+  </div>
+
+  <div nz-col nzSpan="6">
+    <button nz-button nzType="primary" (click)="onItemClick(null)" style="float: right;"><i nz-icon nzType="file-add" nzTheme="outline"></i> Add Book</button>
   </div>
 </div>
 
