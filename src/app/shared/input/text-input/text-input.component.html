@@ -1,0 +1,15 @@
+<div [ngClass]="{'ant-form-item-has-error': control && control.invalid && (control.dirty || control.touched)}">
+  <nz-input-group [nzPrefixIcon]="prefixIcon">
+    <input
+      [type]="type"
+      nz-input
+      ngDefaultControl
+      id="{{id}}"
+      placeholder="{{placeholder}}"
+      [ngClass]="{'ng-dirty ng-invalid': control && control.invalid && (control.dirty || control.touched)}"
+    />
+  </nz-input-group>
+  <div class="ant-form-item-explain" *ngIf="control && control.invalid && (control.dirty || control.touched)">
+    {{control.errors | msValidationErrorI18N}}
+  </div>
+</div>
