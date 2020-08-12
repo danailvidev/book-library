@@ -1,0 +1,50 @@
+<form nz-form [formGroup]="bookForm" class="drawer-form" (ngSubmit)="onSubmit($event)">
+  <ch-header [pageTitle]="request.id ? request.title : 'Add new book'" (back)="onBack()"></ch-header>
+
+  <div nz-row>
+    <div nz-col nzXs="24">
+      <ch-form-item label="Title" labelSpan="24">
+        <ch-text-input formControlName="title" placeholder="title" id="title"></ch-text-input>
+      </ch-form-item>
+    </div>
+  </div>
+  <div nz-row>
+    <div nz-col nzXs="24">
+      <ch-form-item label="Author" labelSpan="24">
+        <ch-text-input formControlName="author" placeholder="author" id="author"></ch-text-input>
+      </ch-form-item>
+    </div>
+  </div>
+
+  <div nz-row nzGutter="16">
+    <div nz-col nzXs="6">
+      <ch-form-item label="Year" labelSpan="24">
+        <ch-text-input formControlName="year" placeholder="year" id="year"></ch-text-input>
+      </ch-form-item>
+    </div>
+
+    <div nz-col nzXs="18">
+        <ch-form-item label="Categories" labelSpan="24">
+          <ch-text-input formControlName="categories" placeholder="categories" id="categories"></ch-text-input>
+        </ch-form-item>
+      </div>
+  </div>
+
+  <div *ngIf="request" class="drawer-footer">
+    <button
+      type="button"
+      *ngIf="request.id"
+      (click)="onDelete(request)"
+      class="ant-btn ant-btn-danger"
+      style="margin-right: 8px; float: left;"
+    >
+      <span>Delete</span>
+    </button>
+    <button type="button" (click)="onClose($event)" class="ant-btn" style="margin-right: 8px;">
+      <span>Cancel</span>
+    </button>
+    <button type="submit" class="ant-btn ant-btn-primary">
+      <span>Submit</span>
+    </button>
+  </div>
+</form>
