@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  pagination: {
+    defaultPagination: {
+      defaultResultsPerPage: 10,
+      resultsPerPageOptions: [ 10, 30, 50 ]
+    }
+  }
 };
 
 /*
