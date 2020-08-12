@@ -2,3 +2,23 @@ body {
   min-height: 100vh;
   font-family: 'Poppins', sans-serif;
 }
+
+.drawer-form {
+  max-width: 800px;
+}
+.drawer-footer {
+  position: absolute;
+  bottom: 0px;
+  width: 93%;
+  border-top: 1px solid #e8e8e8;
+  margin: 10px 24px;
+  padding-top: 10px;
+  text-align: right;
+  left: 0px;
+  background: #fff;
+  max-width: 800px;
+  box-sizing: border-box;
+  @include respond-below(xs) {
+    width: 87vw;
+  }
+}
