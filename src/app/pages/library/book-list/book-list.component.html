@@ -1,0 +1,57 @@
+<div nz-row nzType="flex" nzJustify="center" style="margin-bottom: 1em;">
+  <div nz-col nzSpan="6">
+    <ch-search-input
+      placeholder="Search"
+      (input)="search($event)"
+      [delay]="200"
+      [minInputLength]="2"
+    ></ch-search-input>
+  </div>
+</div>
+
+<div nz-row>
+  <div nz-col nzSpan="24">
+    <nz-table
+      #filterTable
+      [nzData]="currentItems"
+      [nzScroll]="{ y: 'calc(100vh - 280px)' }"
+      [nzFrontPagination]="false"
+      [nzShowPagination]="true"
+      [nzShowSizeChanger]="true"
+      [nzPageSize]="count"
+      [nzPageIndex]="pageIndex"
+      [nzTotal]="totalCount"
+      [nzPageSizeOptions]="pageSizeOptions"
+      (nzPageIndexChange)="pageIndexChange($event)"
+      (nzPageSizeChange)="pageSizeChange($event)"
+      [nzLoading]="loading"
+      [nzShowTotal]="total"
+    >
+      <thead (nzSortChange)="sort($event)" nzSingleSort>
+        <tr>
+          <th nzShowSort nzSortKey="title" [(nzSort)]="mapOfSort.title" nzWidth="35%">
+            Title
+          </th>
+          <th nzWidth="25%">Author</th>
+          <th nzShowSort nzSortKey="year" [(nzSort)]="mapOfSort.year" nzWidth="10%">Year</th>
+          <th nzShowSort nzSortKey="categories" [(nzSort)]="mapOfSort.categories" nzWidth="30%">
+            Categories
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let data of filterTable.data"
+          (click)="onItemClick(data)"
+          style="cursor: pointer;"
+        >
+          <td>{{ data.title }}</td>
+          <td>{{ data.author }}</td>
+          <td>{{ data.year }}</td>
+          <td>{{ data.categories }}</td>
+        </tr>
+      </tbody>
+      <ng-template #total let-total> Total books: {{ total }}</ng-template>
+    </nz-table>
+  </div>
+</div>

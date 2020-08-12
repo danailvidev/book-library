@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LibraryComponent } from './library.component';
+import { BookListComponent } from './book-list/book-list.component';
 
 const routes: Routes = [
-  { path: '', component: LibraryComponent },
+  { path: '', component: BookListComponent },
 ];
 
 @NgModule({
