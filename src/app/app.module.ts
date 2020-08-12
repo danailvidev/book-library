@@ -12,7 +12,8 @@ import { CoreModule } from './core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 import { IconsProviderModule } from './icons-provider.module';
-import { environment } from 'src/environments/environment';
+import { environment } from 'environments/environment';
+import { ENVIRONMENT } from '@shared/shared';
 
 registerLocaleData(en);
 
@@ -28,7 +29,7 @@ registerLocaleData(en);
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
-    { provide: environment, useValue: environment }
+    { provide: ENVIRONMENT, useValue: environment }
   ],
   bootstrap: [AppComponent]
 })
