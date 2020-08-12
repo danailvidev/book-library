@@ -5,7 +5,7 @@ export interface Book {
   author_firstname?: string;
   author_lastname?: string;
   author_middlename?: string;
-  categories?: Array<string>;
+  categories?: Array<string> | string;
   volume?: string | number;
   year?: number;
   edition?: string | number;

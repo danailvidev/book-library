@@ -23,7 +23,7 @@ export class LibraryService {
     return this.http.delete<Book>(`${this.endpoint}/${id}`);
   }
 
-  public fetchLatest(params?: HttpParams): Observable<Book[]> {
-    return this.http.get<Book[]>(this.endpoint, { params: params });
+  public fetchLatest(params?: HttpParams): Observable<any> {
+    return this.http.get<Book[]>(this.endpoint, { params: params, observe: 'response' });
   }
 }

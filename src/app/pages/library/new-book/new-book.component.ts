@@ -25,7 +25,9 @@ export class NewBookComponent implements OnInit {
   ngOnInit(): void {
     this.request = {
       id: '',
-      title: ''
+      title: '',
+      author: '',
+      categories: ''
     };
   }
 

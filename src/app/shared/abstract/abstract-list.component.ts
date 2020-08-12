@@ -50,8 +50,10 @@ export abstract class AbstractListComponent<T> implements OnInit, OnDestroy {
           take(1),
           retry(1),
           tap((res: any) => {
-            this.currentItems = res;
-            this.totalCount = 50;
+            if (res && res.body) {
+              this.currentItems = res.body;
+            }
+            this.totalCount = res.headers.get('X-Total-Count') || 50;
           })
         )
         .subscribe()
