@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { NewBookComponent } from './new-book.component';
-// TODO import form module
+import { BookFormModule } from '../book-form/book-form.module';
 
 @NgModule({
   declarations: [NewBookComponent],
-  imports: [CommonModule]
+  imports: [CommonModule, BookFormModule]
 })
 export class NewBookModule {}

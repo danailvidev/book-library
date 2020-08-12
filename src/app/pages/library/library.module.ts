@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { LibrarySharedModule } from '@shared/library';
+
 import { NewBookModule } from './new-book/new-book.module';
 import { BookEditModule } from './book-edit/book-edit.module';
+import { BookFormModule } from './book-form/book-form.module';
 import { LibraryRoutingModule } from './library.routing';
 import { BookListModule } from './book-list/book-list.module';
-import { LibrarySharedModule } from '../../shared/library';
 
 @NgModule({
   imports: [
@@ -14,6 +16,7 @@ import { LibrarySharedModule } from '../../shared/library';
     NewBookModule,
     BookEditModule,
     BookListModule,
+    BookFormModule,
     LibrarySharedModule
   ]
 })
